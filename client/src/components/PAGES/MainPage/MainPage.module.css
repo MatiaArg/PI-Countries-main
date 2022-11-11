@@ -1,0 +1,25 @@
+.btn {
+    color:#E8C39E;
+    background-color:  rgba(64, 68, 68, 0.884);
+    font-size: 22px;
+    
+    border: 1.5px solid #ffffff81;
+    border-radius: 20px 20px;
+    
+    padding: 6px 17px;
+    cursor: pointer;
+    box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.461);
+}
+
+.btn:hover {
+    background-color:  #E8C39E;
+    color: rgba(44, 45, 45, 0.884);
+
+    border:  1.5px solid #6f5d4d;;
+}
+
+.div {
+    display: flex;
+    justify-content: center;
+    margin-top: 300px;
+}

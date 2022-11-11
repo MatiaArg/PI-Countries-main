@@ -1,0 +1,8 @@
+.cards_container {
+    /* display: grid; */
+    display: flex;
+    /* grid-template-columns: repeat(3,1fr); */
+    /*fraccion*/
+    flex-wrap: wrap;
+    justify-content: center;
+}

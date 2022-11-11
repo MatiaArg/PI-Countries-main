@@ -1,0 +1,46 @@
+.div {
+    display: flex;
+    justify-content:space-around;
+    background-color: rgba(255, 209, 209, 0.39);
+}
+
+.link1 {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    border: solid 2px rgb(255, 167, 167);
+    background-color: azure;
+    border-top-left-radius: 24px ;
+    border-bottom-right-radius: 24px ;
+    padding-right: 4px;
+    padding-left: 4px;
+    border-bottom-left-radius: 24px;
+    border-top-right-radius: 24px;
+    width: 191.156px;
+    margin: 7px 0px;
+}
+
+.img1 {
+    width: 33px;
+    height: 33px;
+    /* margin-right: 8px; */
+    /* margin-top: 17px; */
+    margin: 7.5px 0px;
+}
+
+.img2 {
+    width: 33px;
+    height: 33px;
+    /* margin-left: 8px; */
+    margin: 7.5px 0px;
+}
+
+.h2_black {
+    color: black;
+    margin: 10px 7px;
+}
+
+.h2_red {
+    color: hsl(0, 100%, 29%);
+    margin: 10px 7px;
+}

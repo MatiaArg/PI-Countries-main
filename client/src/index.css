@@ -1,10 +1,8 @@
 body {
+  background-image: linear-gradient(rgba(70, 11, 2, 0.659), rgba(255, 255, 255, 0)), url('https://www.todofondos.net/wp-content/uploads/2560x1440-Fondo-de-pantalla-de-terror-gratis-2560-%C3%97-1440-Fondo-de-pantalla-de-escritorio-Horror-46-1024x576.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 code {

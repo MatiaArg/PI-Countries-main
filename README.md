@@ -1,9 +1,9 @@
 ![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
 
-# Individual Project - Henry Countries
+# Individual Project - Henry Videogames
 
-<p align="left">
-  <img height="200" src="./countries.png" />
+<p align="right">
+  <img height="200" src="./videogame.png" />
 </p>
 
 ## Objetivos del Proyecto
@@ -67,25 +67,28 @@ DB_HOST=localhost
 
 Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
 
-Adicionalmente será necesario que creen desde psql una base de datos llamada `countries`
+Adicionalmente será necesario que creen desde psql una base de datos llamada `videogames`
 
 El contenido de `client` fue creado usando: Create React App.
 
 ## Enunciado
 
-La idea general es crear una aplicación en la cual se pueda ver información de  distintos paises utilizando la api externa [restcountries](https://restcountries.com/) y a partir de ella poder, entre otras cosas:
+La idea general es crear una aplicación en la cual se puedan ver los distintos videojuegos disponibles junto con información relevante de los mismos utilizando la api externa [rawg](https://rawg.io/apidocs) y a partir de ella poder, entre otras cosas:
 
-- Buscar paises
+- Buscar videjuegos
 - Filtrarlos / Ordenarlos
-- Crear actividades turísticas
+- Agregar nuevos videojuegos
+
+__IMPORTANTE__: Para poder utilizar esta API externa es necesario crearse una cuenta para obtener una API Key que luego debera ser incluida en todos los request que hagamos a rawg simplemente agregando `?key={YOUR_API_KEY}` al final de cada endpoint. Agregar la clave en el archivo `.env` para que la misma no se suba al repositorio por cuestiones de seguridad y utilizarla desde allí.
 
 __IMPORTANTE__: Para las funcionalidades de filtrado y ordenamiento NO pueden utilizar los endpoints de la API externa que ya devuelven los resultados filtrados u ordenados sino que deben realizarlo ustedes mismos. En particular alguno de los ordenamientos o filtrados debe si o si realizarse desde el frontend.
 
 ### Únicos Endpoints/Flags que pueden utilizar
 
-- GET <https://restcountries.com/v3/all>
-- GET <https://restcountries.com/v3/name/{name}>
-- GET <https://restcountries.com/v3/alpha/{code}>
+- GET <https://api.rawg.io/api/games>
+- GET <https://api.rawg.io/api/games?search={game}>
+- GET <https://api.rawg.io/api/genres>
+- GET <https://api.rawg.io/api/games/{id}>
 
 ### Requerimientos mínimos
 
@@ -111,58 +114,56 @@ __Pagina inicial__: deben armar una landing page con
 
 __Ruta principal__: debe contener
 
-- [ ] Input de búsqueda para encontrar países por nombre
-- [ ] Área donde se verá el listado de países. Al iniciar deberá cargar los primeros resultados obtenidos desde la ruta `GET /countries` y deberá mostrar su:
-  - Imagen de la bandera
+- [ ] Input de búsqueda para encontrar videojuegos por nombre
+- [ ] Área donde se verá el listado de videojuegos. Deberá mostrar su:
+  - Imagen
   - Nombre
-  - Continente
-- [ ] Botones/Opciones para filtrar por continente y por tipo de actividad turística
-- [ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente los países por orden alfabético y por cantidad de población
-- [ ] Paginado para ir buscando y mostrando los siguientes paises, 10 paises por pagina, mostrando los primeros 9 en la primer pagina.
+  - Géneros
+- [ ] Botones/Opciones para filtrar por género y por videojuego existente o agregado por nosotros
+- [ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente los videojuegos por orden alfabético y por rating
+- [ ] Paginado para ir buscando y mostrando los siguientes videojuegos, 15 juegos por pagina, mostrando los primeros 15 en la primer pagina.
 
-__Ruta de detalle de país__: debe contener
+__IMPORTANTE__: Dentro de la Ruta Principal se deben mostrar tanto los videjuegos traidos desde la API como así también los de la base de datos. Debido a que en la API existen alrededor de 500 mil juegos, por cuestiones de performance pueden tomar la simplificación de obtener y paginar los primeras 100.
 
-- [ ] Los campos mostrados en la ruta principal para cada país (imagen de la bandera, nombre, código de país de 3 letras y continente)
-- [ ] Código de país de 3 letras (id)
-- [ ] Capital
-- [ ] Subregión
-- [ ] Área (Mostrarla en km2 o millones de km2)
-- [ ] Población
-- [ ] Actividades turísticas con toda su información asociada
+__Ruta de detalle de videojuego__: debe contener
 
-__Ruta de creación de actividad turística__: debe contener
+- [ ] Los campos mostrados en la ruta principal para cada videojuegos (imagen, nombre, y géneros)
+- [ ] Descripción
+- [ ] Fecha de lanzamiento
+- [ ] Rating
+- [ ] Plataformas
+
+__Ruta de creación de videojuegos__: debe contener
 
 - [ ] Un formulario __controlado con JavaScript__ con los siguientes campos:
   - Nombre
-  - Dificultad
-  - Duración
-  - Temporada
-- [ ] Posibilidad de seleccionar/agregar varios países en simultáneo
-- [ ] Botón/Opción para crear una nueva actividad turística
+  - Descripción
+  - Fecha de lanzamiento
+  - Rating
+- [ ] Posibilidad de seleccionar/agregar varios géneros
+- [ ] Posibilidad de seleccionar/agregar varias plataformas
+- [ ] Botón/Opción para crear un nuevo videojuego
 
-> Es requisito que el formulario de creación esté validado con JavaScript y no sólo con validaciones HTML. Pueden agregar las validaciones que consideren. Por ejemplo: Que el nombre de la actividad no pueda contener símbolos, que la duración no pueda exceder determinado valor, etc.
+> Es requisito que el formulario de creación esté validado con JavaScript y no sólo con validaciones HTML. Pueden agregar las validaciones que consideren. Por ejemplo: Que el nombre del juego no pueda contener algunos símbolos, que el rating no pueda exceder determinado valor, etc.
 
 ## Base de datos
 
 El modelo de la base de datos deberá tener las siguientes entidades (Aquellas propiedades marcadas con asterísco deben ser obligatorias):
 
-- [ ] País con las siguientes propiedades:
-  - ID (Código de 3 letras) *
+- [ ] Videojuego con las siguientes propiedades:
+  - ID: * No puede ser un ID de un videojuego ya existente en la API rawg
   - Nombre *
-  - Imagen de la bandera *
-  - Continente *
-  - Capital *
-  - Subregión
-  - Área
-  - Población
-- [ ] Actividad Turística con las siguientes propiedades:
+  - Descripción *
+  - Fecha de lanzamiento
+  - Rating
+  - Plataformas *
+- [ ] Genero con las siguientes propiedades:
   - ID
   - Nombre
-  - Dificultad (Entre 1 y 5)
-  - Duración
-  - Temporada (Verano, Otoño, Invierno o Primavera)
 
-La relación entre ambas entidades debe ser de muchos a muchos ya que un país puede contener varias actividades turísticas y, a su vez, una actividad turística puede darse en múltiples países. Por ejemplo una actividad podría ser "Ski" que podría ocurrir en Argentina y también en Estados Unidos, pero a su vez Argentina podría también incluir "Rafting".
+La relación entre ambas entidades debe ser de muchos a muchos ya que un videojuego puede pertenecer a varios géneros en simultaneo y, a su vez, un género puede contener múltiples videojuegos distintos. Un ejemplo sería el juego `Counter Strike` pertenece a los géneros Shooter y Action al mismo tiempo. Pero a su vez existen otros videojuegos considerados como Shooter o como Action.
+
+__IMPORTANTE__: Pensar como modelar los IDs de los videojuegos en la base de datos. Existen distintas formas correctas de hacerlo pero tener en cuenta que cuando hagamos click en algun videojuego, este puede provenir de la API o de la Base de Datos por lo que cuando muestre su detalle no debería haber ambigüedad en cual se debería mostrar. Por ejemplo si en la API el videojuego `Age of Empires II: Age of Kings` tiene id = 1 y en nuestra base de datos creamos un nuevo videojuego `Age of Henry` con id = 1, ver la forma de diferenciarlos cuando querramos acceder al detalle del mismo.
 
 ## Backend
 
@@ -170,19 +171,22 @@ Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
 
 __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y paginados brindados por la API externa, todas estas funcionalidades tienen que implementarlas ustedes.
 
-- [ ] __GET /countries__:
-  - En una primera instancia deberán traer todos los países desde restcountries y guardarlos en su propia base de datos y luego ya utilizarlos desde allí (Debe retonar sólo los datos necesarios para la ruta principal)
-  - Obtener un listado de los paises.
-- [ ] __GET /countries/{idPais}__:
-  - Obtener el detalle de un país en particular
-  - Debe traer solo los datos pedidos en la ruta de detalle de país
-  - Incluir los datos de las actividades turísticas correspondientes
-- [ ] __GET /countries?name="..."__:
-  - Obtener los países que coincidan con el nombre pasado como query parameter (No necesariamente tiene que ser una matcheo exacto)
-  - Si no existe ningún país mostrar un mensaje adecuado
-- [ ] __POST /activities__:
-  - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de actividad turística por body
-  - Crea una actividad turística en la base de datos, relacionada con los países correspondientes
+- [ ] __GET /videogames__:
+  - Obtener un listado de los videojuegos
+  - Debe devolver solo los datos necesarios para la ruta principal
+- [ ] __GET /videogames?name="..."__:
+  - Obtener un listado de las primeros 15 videojuegos que contengan la palabra ingresada como query parameter
+  - Si no existe ningún videojuego mostrar un mensaje adecuado
+- [ ] __GET /videogame/{idVideogame}__:
+  - Obtener el detalle de un videojuego en particular
+  - Debe traer solo los datos pedidos en la ruta de detalle de videojuego
+  - Incluir los géneros asociados
+- [ ] __POST /videogames__:
+  - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de videojuego por body
+  - Crea un videojuego en la base de datos, relacionado a sus géneros.
+- [ ] __GET /genres__:
+  - Obtener todos los tipos de géneros de videojuegos posibles
+  - En una primera instancia deberán traerlos desde rawg y guardarlos en su propia base de datos y luego ya utilizarlos desde allí
 
 ## Testing
 

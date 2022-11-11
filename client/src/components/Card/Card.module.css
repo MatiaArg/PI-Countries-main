@@ -1,0 +1,10 @@
+.div_card {
+    display: flex;
+    justify-content: normal;
+    flex-direction: column;
+    border: #ffa50096 solid 3.5px;
+    margin: 13px;
+    align-content:space-around;
+    width: fit-content;
+    /* margin-inline: auto; */
+}

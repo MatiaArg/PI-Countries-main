@@ -1,0 +1,129 @@
+.div_link {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 209, 209, 0.39);
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    border: solid 2px rgb(255, 167, 167);
+    background-color: azure;
+    border-top-left-radius: 24px ;
+    border-bottom-right-radius: 24px ;
+    padding-right: 4px;
+    padding-left: 4px;
+    border-bottom-left-radius: 24px;
+    border-top-right-radius: 24px;
+    width: 191.156px;
+    margin: 7px 0px;
+}
+
+.link img {
+    width: 33px;
+    height: 33px;
+    /* margin-top: 17px;
+    margin-right: 8px; */
+    margin: 7.5px 0px;
+}
+
+.link h2 {
+    color: black;
+    margin: 10px 7px;;
+}
+
+.form {
+    background-color: #71c26061;
+    box-shadow: 2px 2px 10px black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 20px;
+    margin: auto;
+    width: 500px;
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.form h2 {
+    margin-top: 0px;
+    border: 3px solid white;
+    border-radius: 22px;
+    padding: 10px;
+    border-left-width: 100px;
+    border-right-width: 100px;
+    border-left-color:  #70c26000;
+    border-right-color:  #70c26000;
+}
+
+.form input {
+    border-radius: 5px;
+    border: 2px solid rgba(250, 128, 114, 0.58);
+    padding: 5px;
+    margin-top: 3px;
+    display: flex;
+    margin: auto;
+}
+
+.form input:focus {
+    outline: none;
+}
+
+.form input:hover {
+    border: 2px solid rgba(62, 68, 255, 0.714)
+}
+
+.form p {
+    margin: 0px;
+    color: rgb(255, 0, 0);
+}
+
+.danger {
+    border: 2px solid red !important
+}
+
+.genreContain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.genreOption {
+    display: flex;
+}
+
+.genreOption input {
+    margin-left: 33px;
+    margin-right: 33px;
+}
+
+.btn_disabled:disabled {
+    cursor:auto;
+    background-color: rgba(86, 86, 86, 0.727);
+}
+.btn_disabled:disabled:hover {
+    background-color: rgba(86, 86, 86, 0.727);
+    border: 2px solid rgba(255, 255, 255, 0.48);
+    box-shadow: none;
+}
+
+.form button {
+    cursor: pointer;
+    border-radius: 9px;
+    border: 2px solid rgba(255, 255, 255, 0.48);
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 24px; 
+}
+
+.form button:hover {
+    border: 1.5px solid rgba(52, 47, 47, 0.481);
+    background-color: rgb(37, 31, 31);
+    color: rgb(255, 255, 255);
+    box-shadow: 5px 4px 7px rgb(131, 121, 121);
+}
